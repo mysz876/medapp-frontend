@@ -1,0 +1,19 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <h1 id="modal-title">{{modalData.title}}</h1>
+    </header>
+    <section id="modal-body">
+        <ng-container *ngIf="modalData.description">
+            {{modalData.description}}
+        </ng-container>
+        <ng-template modalBody></ng-template>
+    </section>
+    <footer id="modal-footer">
+        <button mat-raised-button id="modal-action-button" color="primary" [disabled]="btnStatus" (click)="actionFn()">
+            {{modalData.actionButtonText}}
+        </button>
+        <button mat-raised-button id="modal-cancel-button" color="primary" (click)="closeModal()">
+            Anuluj
+        </button>
+    </footer>
+</div>
