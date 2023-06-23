@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../../services/doctor.service';
 import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { doctorURLs } from '../../configs/url';
 
 @Component({
   selector: 'app-doctor-create',
@@ -14,6 +16,7 @@ export class DoctorCreateComponent implements OnInit {
     private fb: FormBuilder,
     private doctorService: DoctorService,
     private snackService: SnackbarService,
+    private router: Router,
   ) { }
 
   form: FormGroup = this.fb.group({
@@ -29,7 +32,7 @@ export class DoctorCreateComponent implements OnInit {
 
   newDoctor(value: any): void {
     this.doctorService.create(value).subscribe(resp => {
-      if(resp.result) { }
+      if(resp.result) { this.router.navigate([doctorURLs.list]) }
       this.snackService.open(resp.msg)
     })
   }

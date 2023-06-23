@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SpecializationService } from '../../services/specialization.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
+import { Router } from '@angular/router';
+import { specializationURLs } from '../../configs/url';
 
 @Component({
   selector: 'app-specialization-create',
@@ -14,6 +16,7 @@ export class SpecializationCreateComponent implements OnInit {
     private fb: FormBuilder,
     private specService: SpecializationService,
     private snackbarService: SnackbarService,
+    private router: Router,
   ) { }
   
   form!: FormGroup
@@ -30,7 +33,7 @@ export class SpecializationCreateComponent implements OnInit {
 
   newSpecialization(value: any): void {
     this.specService.createSpecialization(value).subscribe(resp => {
-      if(resp.result) {}
+      if(resp.result) { this.router.navigate([specializationURLs.list]) }
       this.snackbarService.open(resp.msg)
     })
   }

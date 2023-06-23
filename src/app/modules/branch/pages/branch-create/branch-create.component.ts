@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BranchService } from '../../services/branch.service';
 import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
+import { Router } from '@angular/router';
+import { branchURLs } from '../../configs/url';
 
 @Component({
   selector: 'app-branch-create',
@@ -14,6 +16,7 @@ export class BranchCreateComponent implements OnInit {
     private fb: FormBuilder,
     private branchService: BranchService,
     private snackbarService: SnackbarService,
+    private router: Router,
   ) { }
 
   form!: FormGroup
@@ -30,7 +33,7 @@ export class BranchCreateComponent implements OnInit {
 
   newBranch(value: any): void {
     this.branchService.createBranch(value).subscribe(resp => {
-      if(resp.result) {}
+      if(resp.result) { this.router.navigate([branchURLs.list]) }
       this.snackbarService.open(resp.msg)
     })
   }
