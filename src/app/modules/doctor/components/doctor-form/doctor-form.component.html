@@ -1,0 +1,29 @@
+<ng-container *ngIf="form" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Imię lekarza</mat-label>
+        <input
+            matInput
+            placeholder="Podaj imię"
+            formControlName="name"/>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Nazwisko lekarza</mat-label>
+        <input
+            matInput
+            placeholder="Podaj nazwisko"
+            formControlName="surname"/>
+    </mat-form-field>
+    <ng-container *ngIf="branchCfg">
+        <app-picker [config]="branchCfg"></app-picker>
+    </ng-container>
+    <ng-container *ngIf="specializationCfg">
+        <app-picker [config]="specializationCfg"></app-picker>
+    </ng-container>
+    <mat-form-field appearance="outline">
+        <mat-label>Ilość wolnych dni</mat-label>
+        <input
+            matInput
+            placeholder="Podaj ilośc dni"
+            formControlName="dayCount"/>
+    </mat-form-field>
+</ng-container>

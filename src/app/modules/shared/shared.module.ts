@@ -10,6 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalBodyDirective } from './directives/modal-body.directive';
+import { PickerComponent } from './components/picker/picker.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +22,7 @@ import { ModalBodyDirective } from './directives/modal-body.directive';
     SnackbarComponent,
     ModalComponent,
     ModalBodyDirective,
+    PickerComponent,
   ],
   imports: [
     CommonModule,
@@ -27,9 +32,14 @@ import { ModalBodyDirective } from './directives/modal-body.directive';
     MatSnackBarModule,
     MatButtonModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     TableComponent,
+    PickerComponent,
   ]
 })
 export class SharedModule { }

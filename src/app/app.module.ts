@@ -9,6 +9,7 @@ import { BranchModule } from './modules/branch/branch.module';
 import { CoreModule } from './modules/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SpecializationModule } from './modules/specialization/specialization.module';
+import { DoctorModule } from './modules/doctor/doctor.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SpecializationModule } from './modules/specialization/specialization.mo
     CoreModule,
     HttpClientModule,
     SpecializationModule,
+    DoctorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

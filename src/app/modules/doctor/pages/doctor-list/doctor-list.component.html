@@ -1,0 +1,8 @@
+<ng-container *ngIf="doctors$ | async as doctors">
+    <app-table
+        [dataSource$]="doctors"
+        [tableConfig]="tableConfig"
+        (deleteEvent)="deleteDoctor($event)"
+        (editEvent)="editDoctor($event)"
+    ></app-table>
+</ng-container>
