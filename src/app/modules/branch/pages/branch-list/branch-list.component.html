@@ -1,0 +1,8 @@
+<ng-container *ngIf="branches$ | async as branches">
+    <app-table
+        [dataSource$]="branches"
+        [tableConfig]="tableConfig"
+        (deleteEvent)="deleteBranch($event)"
+        (editEvent)="editBranch($event)"
+    ></app-table>
+</ng-container>
