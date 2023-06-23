@@ -1,0 +1,40 @@
+<ng-container *ngIf="dataSource$ as dataSource">
+    <!-- <table #table mat-table style="width: 100%;" [dataSource]="dataSource | filterTable : filterForm.value" multiTemplateDataRows> -->
+    <table #table mat-table style="width: 100%;" [dataSource]="dataSource" multiTemplateDataRows>
+        <!--Render main columns and rows-->
+        <ng-container *ngFor="let config of tableConfig">
+            <ng-container [matColumnDef]="config.columnDef">
+                <th mat-header-cell *matHeaderCellDef>
+                    {{ config.columnName }}
+                    <!-- <ng-container *ngIf="getControl(config.columnDef) as control">
+                        <mat-form-field appearance="outline">
+                            <input matInput [formControl]="control"/>
+                        </mat-form-field>
+                    </ng-container> -->
+                </th>
+                <ng-container *matCellDef="let element; let i=dataIndex">
+                    <td mat-cell>
+                        <ng-container [ngSwitch]="config.type">
+                            <ng-container *ngSwitchCase="'text'">
+                                {{ element[config.columnDef] }}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'option'">
+                                <ng-container *ngFor="let opt of config.optionList" [ngSwitch]="opt.name">
+                                    <button mat-stroked-button *ngSwitchCase="'edit'" (click)="editEvent.emit(element)">
+                                        <mat-icon>{{opt.iconName}}</mat-icon>
+                                    </button>
+                                    <button mat-stroked-button *ngSwitchCase="'delete'" (click)="deleteEvent.emit(element)">
+                                        <mat-icon>{{opt.iconName}}</mat-icon>
+                                    </button>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+        <!--Render main rows-->        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</ng-container>
