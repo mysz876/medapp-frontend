@@ -1,0 +1,35 @@
+.span-option {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    color: gray;
+    font-size: medium;
+}
+
+.span-option:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.active-span {
+    color: red;
+    font-weight: 450;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-option {
+    padding: 10px;
+}
+
+.router-container {
+    width: 1600px;
+}
+
+.main {
+    display: grid;
+    justify-content: center;
+}

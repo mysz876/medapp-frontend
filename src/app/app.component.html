@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<div class="main">
+    <div class="menu">
+        <ng-container *ngFor="let route of routes">
+            <div class="menu-option">
+                <span class="span-option" [routerLink]="route.route" [queryParams]="route.params" [relativeTo]="route.relative" routerLinkActive="active-span">{{route.name}}</span>
+            </div>
+        </ng-container>
+    </div>
+    <div class="router-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
