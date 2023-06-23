@@ -1,0 +1,8 @@
+<ng-container *ngIf="specializations$ | async as specializations">
+    <app-table
+        [dataSource$]="specializations"
+        [tableConfig]="tableConfig"
+        (deleteEvent)="deleteSpecizalization($event)"
+        (editEvent)="editSpecizalization($event)"
+    ></app-table>
+</ng-container>

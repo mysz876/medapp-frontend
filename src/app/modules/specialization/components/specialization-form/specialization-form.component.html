@@ -1,0 +1,9 @@
+<ng-container *ngIf="form" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nazwa specjazlizacji</mat-label>
+        <input
+            matInput
+            placeholder="Podaj nazwę"
+            formControlName="name"/>
+    </mat-form-field>
+</ng-container>

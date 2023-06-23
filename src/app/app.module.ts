@@ -8,6 +8,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { BranchModule } from './modules/branch/branch.module';
 import { CoreModule } from './modules/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SpecializationModule } from './modules/specialization/specialization.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     BranchModule,
     CoreModule,
     HttpClientModule,
+    SpecializationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
